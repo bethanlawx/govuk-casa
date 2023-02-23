@@ -1,0 +1,41 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "casa/components/checkboxes/macro.njk" import casaGovukCheckboxes with context %}
+
+{% block casaPageTitle %}
+  {{ t('beths-page:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+    <p class="govuk-heading-xl">
+        WELCOME TO THE PAGE FOR JUST THE BADDIES OF THE WORLD  
+    </p>
+  {{ casaGovukCheckboxes({
+    name: "foodBoxes",
+    casaErrors: formErrors,
+    casaValue: formData.foodBoxes,
+    fieldset: {
+      legend: {
+        text: t('beths-page:field.foodBoxes.label'),
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: t('beths-page:field.foodBoxes.hint')
+    },
+    items: [{
+      value: "sushi",
+      text: t('beths-page:field.foodBoxes.options.sushi')
+    },{
+      value: "burger",
+      text: t('beths-page:field.foodBoxes.options.burger')
+    }, {
+      value: "pasta",
+      text: t('beths-page:field.foodBoxes.options.pasta')
+    }, {
+      value: "curry",
+      text: t('beths-page:field.foodBoxes.options.curry')
+    }]
+  }) }}
+{% endblock %}

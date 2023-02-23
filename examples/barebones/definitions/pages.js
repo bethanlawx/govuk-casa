@@ -3,6 +3,7 @@ const checkboxesFields = require('./fields/checkboxes.js');
 const contactDetailsFields = require('./fields/contact-details.js');
 const secretAgentFields = require('./fields/secret-agent.js');
 const workImpactFields = require('./fields/work-impact.js');
+const bethsPageFields = require('./fields/beths-page.js')
 
 module.exports = () => [{
   waypoint: 'personal-details',
@@ -15,7 +16,13 @@ module.exports = () => [{
       next();
     }
   }],
-}, {
+}, 
+{
+  waypoint: 'beths-page',
+  view: 'pages/beths-page.njk',
+  fields: bethsPageFields(),
+},
+{
   waypoint: 'checkboxes',
   view: 'pages/checkboxes.njk',
   fields: checkboxesFields(),
