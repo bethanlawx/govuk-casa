@@ -9,6 +9,9 @@ field:
         burger: Burger
         pasta: Pasta
         curry: Curry
+  slayRadios:
+    label: Are you slaying today?
+    empty: Please make a selection
 errors:
   min:
     inline: "You must choose at least 1, but have only chosen {{ count }}"

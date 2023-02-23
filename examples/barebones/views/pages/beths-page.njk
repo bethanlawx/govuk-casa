@@ -1,6 +1,7 @@
 {% extends "layouts/journey.njk" %}
 
 {% from "casa/components/checkboxes/macro.njk" import casaGovukCheckboxes with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
   {{ t('beths-page:pageTitle') }}
@@ -18,7 +19,7 @@
       legend: {
         text: t('beths-page:field.foodBoxes.label'),
         isPageHeading: false,
-        classes: "govuk-fieldset__legend--xl"
+        classes: "govuk-fieldset__legend--m"
       }
     },
     hint: {
@@ -38,4 +39,26 @@
       text: t('beths-page:field.foodBoxes.options.curry')
     }]
   }) }}
+
+  {{ casaGovukRadios({
+    classes: "govuk-radios--inline",
+    name: 'slayRadios',
+    items: [{
+      text: t('common:yes'),
+      value: 'yes'
+    }, {
+      text: t('common:no'),
+      value: 'no'
+    }],
+    casaValue: formData.slayRadios,
+    fieldset: {
+        legend: {
+          text: t('beths-page:field.slayRadios.label'),
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+    casaErrors: formErrors
+  }) }}
+
 {% endblock %}
